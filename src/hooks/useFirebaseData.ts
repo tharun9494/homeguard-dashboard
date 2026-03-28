@@ -147,10 +147,15 @@ export function useFirebaseData() {
   }, []);
 
   const toggleSystem = async (on: boolean) => {
+    if (usingFallback) {
+      setSensorData(prev => ({ ...prev, systemOn: on }));
+      return;
+    }
     try {
       await set(ref(db, "sensors/systemOn"), on);
     } catch (err: any) {
       setError(err.message);
+      setSensorData(prev => ({ ...prev, systemOn: on }));
     }
   };
 
