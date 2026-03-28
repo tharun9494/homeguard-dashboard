@@ -61,9 +61,9 @@ const Dashboard = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="bg-warning/10 border border-warning/30 rounded-lg p-4 text-warning text-sm"
+            className="bg-warning/10 border border-warning/30 rounded-lg p-4 text-warning text-sm flex items-center gap-2"
           >
-            Connection issue: {error}
+            <span className="font-mono">⚡</span> Using demo data — Firebase: {error}
           </motion.div>
         )}
 
